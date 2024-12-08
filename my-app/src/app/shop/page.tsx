@@ -1,5 +1,6 @@
 import ServicesComponent from "@/components/services";
 import HeroShop from "@/components/shophero";
+import Image from "next/image";
 import Link from "next/link";
 
 const ShopComponent = () => {
@@ -25,7 +26,7 @@ const ShopComponent = () => {
           <Link href={`/shop/${product.id}`} key={product.id}>
             <div className="bg-white shadow-md rounded-md p-4 flex flex-col items-center text-center hover:shadow-lg transition-shadow">
               {/* Product Image */}
-              <img
+              <Image
                 src={product.image}
                 alt={product.name}
                 className="w-full h-40 object-cover rounded-md mb-4"

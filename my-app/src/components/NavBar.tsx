@@ -1,4 +1,5 @@
 import { User, Search, Heart, ShoppingCart } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -6,7 +7,7 @@ const Navbar = () => {
     <nav className="max-w-[1286px] mx-auto w-full h-[100px] flex flex-wrap items-center justify-between px-4 sm:px-8">
       {/* Logo */}
       <div className="text-lg font-bold">
-        <img src="/logo.jpg" alt="funiro" className="w-[120px] h-auto" />
+        <Image src="/logo.jpg" alt="funiro" className="w-[120px] h-auto" />
       </div>
 
       {/* Navigation Links */}

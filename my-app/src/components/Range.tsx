@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const OurRange = () => {
     const rangeItems = [
       {
@@ -34,7 +36,7 @@ const OurRange = () => {
               key={item.id}
               className="flex flex-col items-center p-4 "
             >
-              <img
+              <Image
                 src={item.image}
                 alt={item.title}
                 className="w-full h-[200px] object-cover rounded-md mb-4"
