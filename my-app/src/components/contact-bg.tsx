@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const ContactHeroSection = () => {
@@ -15,12 +16,12 @@ const ContactHeroSection = () => {
         <nav aria-label="breadcrumb" className="text-sm">
           <ol className="flex space-x-2 justify-center">
             <li>
-              <a
+              <Link
                 href="/"
                 className="text-black  hover:text-yellow-600 transition"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="text-black ">/</li>
             <li>

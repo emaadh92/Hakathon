@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Products = () => {
     // Sample product data
     const products = [
@@ -24,7 +26,7 @@ const Products = () => {
               className="relative group border border-gray-200 rounded-lg p-4 hover:shadow-lg transition-shadow"
             >
               {/* Product Image */}
-              <img
+              <Image
                 src={product.image}
                 alt={product.name}
                 className="w-full h-40 object-cover rounded-md"

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const HeroShop = () => {
     return (
       <div
@@ -15,9 +17,9 @@ const HeroShop = () => {
         <nav className="mt-4">
           <ul className="flex items-center space-x-2 text-gray-600">
             <li>
-              <a href="/" className="hover:text-gray-800">
+              <Link href="/" className="hover:text-gray-800">
                 Home
-              </a>
+              </Link>
             </li>
             <li>/</li>
             <li>
