@@ -5,7 +5,7 @@ const Footer = () => {
         <div>
           <h2 className="text-lg font-bold">Funior</h2>
           <p className="text-sm mt-2">
-            "Inspiring lives through our work and dedication."
+          &quot;Inspiring lives through our work and dedication.&quot;
           </p>
         </div>
   

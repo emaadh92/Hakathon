@@ -18,12 +18,12 @@ const OurRange = () => {
     ];
   
     return (
-      <div className="w-full max-w-[1183px] h-[685px] mx-auto px-4 py-8">
+      <div className="w-full max-w-[1183px] h-auto mx-auto px-4 py-8">
         {/* Main Heading */}
         <div className="text-center mb-8">
           <h2 className="text-4xl font-bold text-gray-800">Our Range</h2>
           <p className="text-gray-600 mt-2">
-            Discover a collection that defines luxury, comfort, and modernity.
+            Discover a collection that defines luxury&#44; comfort&#44; and modernity.
           </p>
         </div>
   
