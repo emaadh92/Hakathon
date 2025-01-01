@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="max-w-[1286px] mx-auto w-full h-[100px] flex flex-wrap items-center justify-between px-4 sm:px-8">
       {/* Logo */}
       <div className="text-lg font-bold">
-        <Image src="/logo.jpg" alt="funiro" className="w-[120px] h-auto" />
+        <Image src="/logo.jpg" alt="funiro"  width={500}  height={500} className="w-[120px] h-auto" />
       </div>
 
       {/* Navigation Links */}

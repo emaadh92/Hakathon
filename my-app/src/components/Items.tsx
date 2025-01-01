@@ -61,7 +61,7 @@ const Gallery = () => {
             }`}
             onClick={() => setCurrentIndex(index)}
           >
-            <Image src={image} alt={`Thumbnail ${index + 1}`} className="w-full h-full object-cover" />
+            <Image src={image} width={500} height={500} alt={`Thumbnail ${index + 1}`} className="w-full h-full object-cover" />
           </button>
         ))}
       </div>

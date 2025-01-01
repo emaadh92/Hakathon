@@ -29,6 +29,8 @@ const Products = () => {
               <Image
                 src={product.image}
                 alt={product.name}
+                width={500}
+                height={500}
                 className="w-full h-40 object-cover rounded-md"
               />
   

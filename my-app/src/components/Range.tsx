@@ -39,6 +39,8 @@ const OurRange = () => {
               <Image
                 src={item.image}
                 alt={item.title}
+                width={500}
+                height={500}
                 className="w-full h-[200px] object-cover rounded-md mb-4"
               />
               <h3 className="text-xl font-semibold text-gray-700">{item.title}</h3>
