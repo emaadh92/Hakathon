@@ -5,6 +5,18 @@ import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
 
+interface Product {
+  _id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  oldprice?: number; // Optional old price
+  newprice: number; // Required new price
+  slug: {
+    current: string; // Ensure slug's current property is always a string
+  };
+}
+
 // Async function to fetch product data
 async function fetchProducts() {
   return await client.fetch(`
@@ -35,7 +47,7 @@ const ShopComponent = async () => {
 
       {/* Product Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {products.map((product: any) => (
+        {products.map((product:Product)  => (
           <Link href={`/shop/${product.slug?.current}`} key={product._id}>
             <div className="bg-white shadow-md rounded-md p-4 flex flex-col hover:shadow-lg transition-shadow">
               {/* Product Image */}
