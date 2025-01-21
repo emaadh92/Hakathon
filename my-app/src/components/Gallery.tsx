@@ -1,29 +1,55 @@
-"use client"
-import { useState } from "react";
+"use client";
+
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react"; // Icons for navigation
 import Image from "next/image";
+import { client } from "@/sanity/lib/client"; // Adjust the path as per your project structure
+
+// Function to fetch images from the Sanity API
+async function fetchProductImages() {
+  return await client.fetch(`
+    *[_type == "product"] [0...4] {
+      "imageUrl": productImage.asset->url
+    }
+  `);
+}
 
 const Gallery = () => {
-  const images = [
-    "/perfect.jpg",
-    "/gallery-2.jpg",
-    "/lawn.jpg",
-    "/modern-interior.jpg",
-  ];
-
+  const [images, setImages] = useState<string[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Fetch images on component mount
+  useEffect(() => {
+    const fetchImages = async () => {
+      const data = await fetchProductImages();
+      const imageUrls = data.map((item: { imageUrl: string }) => item.imageUrl);
+      setImages(imageUrls);
+    };
+
+    fetchImages();
+  }, []);
+
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
   };
+
+  if (images.length === 0) {
+    return <p className="text-center text-gray-500">Loading images...</p>;
+  }
 
   return (
     <div className="max-w-[1170px] mx-auto px-4 py-12">
-      <h1 className="text-2xl font-bold text-gray-800 text-center mb-8">Gallery</h1>
+      <h1 className="text-2xl font-bold text-gray-800 text-center mb-8">
+        Gallery
+      </h1>
       <div className="relative flex items-center justify-center">
         {/* Carousel */}
         <div className="w-full h-[400px] overflow-hidden relative rounded-lg">
@@ -31,6 +57,7 @@ const Gallery = () => {
             src={images[currentIndex]}
             width={1000}
             height={1000}
+            loading="lazy"
             alt={`Gallery ${currentIndex + 1}`}
             className="w-full h-full object-cover"
           />
@@ -61,7 +88,13 @@ const Gallery = () => {
             }`}
             onClick={() => setCurrentIndex(index)}
           >
-            <Image src={image} width={500} height={500} alt={`Thumbnail ${index + 1}`} className="w-full h-full object-cover" />
+            <Image
+              src={image}
+              width={500}
+              height={500}
+              alt={`Thumbnail ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
           </button>
         ))}
       </div>
@@ -70,4 +103,3 @@ const Gallery = () => {
 };
 
 export default Gallery;
-

@@ -1,8 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['dummyimage.com'], // Add your external domains here
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: "cdn.sanity.io",
+        port: '',
+        // pathname: '/demos/images/**',
+      }
+    ],
   },
+  
 };
 
 module.exports = nextConfig;
+
+
